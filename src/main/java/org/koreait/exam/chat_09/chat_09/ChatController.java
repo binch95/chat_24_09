@@ -19,9 +19,9 @@ public class ChatController {
 
     @PostMapping("/writeMessage")
     @ResponseBody
-    public RsData<wirteChatMessageResponse> writeMessage() {
+    public RsData<List<ChatMessage>> writeMessage() {
         ChatMessage message = new ChatMessage("홍길동", "안녕");
         chatMessages.add(message);
-        return new RsData<>("S-1", "메세지가 작성됨", new wirteChatMessageResponse(message.getId()));
+        return new RsData<>("S-1", "메세지가 작성됨", chatMessages);
     }
 }
